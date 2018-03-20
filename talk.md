@@ -260,9 +260,9 @@ True
 <!--
 list1.append() does not print the list1 in ipython.
 So, the correct way of writing would be:
-list.append(37); list
+list1.append(37); list1
 
-p in list
+p in list1
 NameError: name 'p' is not defined
 -->
 
@@ -283,7 +283,7 @@ A special notification for `range()`, which gives access to a list-like object:
 ## for-loop
 
 ```
->>> i=0
+>>> i = 0
 >>> while i in range(5):
 ...     print(i)
 ...     i = i + 1
@@ -316,8 +316,8 @@ How to make lists? Long version:
 ```
 >>> result=[]
 >>> for val in <collection>:                                                             # doctest: +SKIP
-      if <condition>:
-         result.append(<expression>)
+...   if <condition>:
+...      result.append(<expression>)
 	 
 ```
 
@@ -394,14 +394,14 @@ Slicing is also possible with a string:
 A `dict` is built up through a collection of key-value pairs within curly braces {}. The syntax is therefore
 
 ```
->>> dict={key1: value1, key2: value2,...}                                                # doctest: +SKIP
+>>> dict = {key1: value1, key2: value2,...}                                                # doctest: +SKIP
 
 ```
 
 The breakfast of Obelix can furtheron be manipulated as
 
 ```
->>> Bf_Obelix={'egg': 5, 'wporc': 3, 'chicken': 2, 'mouse': 1}
+>>> Bf_Obelix = {'egg': 5, 'wporc': 3, 'chicken': 2, 'mouse': 1}
 >>> Bf_Obelix['egg']
 5
 >>> Bf_Obelix.keys()
@@ -435,9 +435,8 @@ dict_items([('egg', 5), ('wporc', 3), ('chicken', 2), ('roman', 2)])
 
 ```
 
-Remark that the order of the items maybe random when the items of the Dict are requested.
+The order of the items maybe random when the items of the Dict are requested.
 It is therefore important to be cautious about interpreting the `values` of the dict:
-
 
 ```
 >>> Bf_Obelix.values()
@@ -445,8 +444,8 @@ dict_values([5, 3, 2, 2])
 
 ```
 
-*From Python 3.6, dictionaries have been reimplemented so that the insertion
-order is preserved*
+However, from Python 3.6, dictionaries have been reimplemented so that the insertion
+order is preserved.
 
 ---
 
@@ -491,28 +490,29 @@ Any sequence can be converted to a tuple by invoking `tuple`:
 Once created, it is not possible to modify which object is stored in each slot.
 
 ```
->>> Obelix= tuple(['not thin', [1, 2], 'nectar'])
->>> Obelix[2] = 'magic drank'                                                            # doctest: +SKIP
+>>> Obelix = tuple(['not thin', [1, 2], 'nectar'])
+>>> Obelix[2] = 'magic drank'                                 # doctest: +SKIP
 TypeError: 'tuple' object does not support item assignment
 
 ```
 
 From the other side, other manipulations are permitted:
 
+```
 >>> Obelix[1].append(3)
 >>> Obelix
 ('not thin', [1, 2, 3], 'nectar')
 >>> (4, None, 'stone') + Obelix
-(4, None, 'stone', 'not thin', [1, 2, 3], 'nectar')
->>> (4, None, 'stone')*3
-(4, None, 'stone', 4, None, 'stone', 4, None, 'stone')
+(4, [], 'stone', 'not thin', [1, 2, 3], 'nectar')
+>>> (4, [], 'stone')*3
+(4, [], 'stone', 4, [], 'stone', 4, [], 'stone')
 
 ```
 
 It is straightforward to use instance methods:
 
 ```
->>> a=(4, None, 'stone')*3
+>>> a=(4, [], 'stone')*3
 >>> a.count('stone')
 3
 >>> 4 in a
@@ -524,8 +524,7 @@ True
 When tuples are multiplied by an integer, the objects themselves are not copied, only the references to them.
 -->
 
-
-<!--
+---
 
 ## Unpacking Tuples
 
@@ -560,7 +559,7 @@ With this functionality, variable names can be easily swapped:
 
 ```
 
--->
+
 
 ---
 

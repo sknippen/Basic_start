@@ -3,6 +3,8 @@ index.html: talk.md
 
 test:
 	nosetests -vx --with-doctest --doctest-extension=md talk.md
+pytest:
+	python -m pytest -vx --doctest-glob=talk.md
 
 RANDOM_PORT=`python -c 'import random; print(int(5000+ 5000*random.random()))'`
 

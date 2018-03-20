@@ -52,14 +52,14 @@ Before Assignment is only memory allocation `v`.
 `=` is not the boolean expression `==` ('is equal to'), it has to be read as 'becomes':
 
 ```
->>> x=3
->>> y=4
->>> x=x-y
->>> y=y-x
+>>> x = 3
+>>> y = 4
+>>> x = x - y
+>>> y = y - x
 >>> print(x)
 -1
 >>> print(y)
-1
+5
 
 ```
 
@@ -70,9 +70,9 @@ Before Assignment is only memory allocation `v`.
 The change of the content of two variables has to be performed using a help-variable:
 
 ```
->>> help=x
->>> x=y
->>> y=help
+>>> help = x
+>>> x = y
+>>> y = help
 
 ```
 
@@ -87,10 +87,10 @@ The syntax of a condition is `<expression><relation><expression>`, with `<relati
 For Python, the if-statement has a syntax as 
 
 ```
->>> if <condition>:
-    	 <statement>
->>> else:
-         <statement>
+>>> if <condition>:                                                                      # doctest: +SKIP
+...     <statement>
+... else:
+...     <statement>
 
 ```
 
@@ -103,18 +103,18 @@ For Python, the if-statement has a syntax as
 The case
 
 ```
->>> if <idefix is faster than asterix>:
-         <idefix gets a bone>
-         <Obelix is happy>
+>>> if <idefix is faster than asterix>:                                                  # doctest: +SKIP
+...     <idefix gets a bone>
+...     <Obelix is happy>
 
 ```
 
 tells something else than
 
 ```
->>> if <idefix is faster than asterix>:
-         <idefix gets a bone>
->>> <Obelix is happy>
+>>> if <idefix is faster than asterix>:                                                  # doctest: +SKIP
+...      <idefix gets a bone>
+>>> <Obelix is happy>                                                                    # doctest: +SKIP
 
 ```
 
@@ -125,25 +125,27 @@ tells something else than
 When `else` gives access to a condition, too, use can be made of `elif`:
 
 ```
->>> if <condition1>:
-      <statements>
->>> elif <condition2>:
-      <statements>
->>> elif <condition3>:
-      <statements>
->>> else:
-      <statements>
+>>> if <condition1>:                                                                     # doctest: +SKIP
+...     <statements>
+... elif <condition2>:
+...     <statements>
+... elif <condition3>:
+...     <statements>
+... else:
+...     <statements>
 
 ```
 
 --> Example: how to put two numbers in ascending order
 
 ```
+>>> x = 2; y = 1
 >>> if x > y:
-      help = x
-      x = y
-      y = help
->>> print(x,y)
+...     help = x
+...     x = y
+...     y = help
+>>> print(x, y)
+1 2
 
 ```
 
@@ -151,11 +153,11 @@ When `else` gives access to a condition, too, use can be made of `elif`:
 
 ## Repetition
 
-Do something as long as a condition is fullfilled:
+Do something as long as a condition is fulfilled:
 
 ```
->>> while <condition>:
-      <statements> 
+>>> while <condition>:                                                                   # doctest: +SKIP
+...   <statements> 
 
 ```
 
@@ -168,13 +170,13 @@ It boils down to the following algorithm:
 --> Example: the algorithm of Euclides to find the highest common denominator...
 
 ```
->>> x=12
->>> y=15
+>>> x = 12
+>>> y = 15
 >>> while x != y:
-      if x > y:
-        x = x-y
-      else:
-        y = y-x
+...     if x > y:
+...        x = x - y
+...     else:
+...        y = y - x
 >>> print('The highest common denominator is', x)
 The highest common denominator is 3
 
@@ -187,16 +189,16 @@ The highest common denominator is 3
 Simple types of variables (like e.g. characters, real and integer numbers,...) can be collected in structured types. A first structured type is a list, which is given in brackets []. Be warned that the index of the list runs from 0 to the length of the list minus one!
 
 ```
->>> list = [5, 3, 'p', 9, 'e']
->>> list[0]
+>>> list1 = [5, 3, 'p', 9, 'e']
+>>> list1[0]
 5
->>> list[len(list)-1]
+>>> list1[len(list1)-1]
 'e'
 
 ```
 
 <!--
-list[len(list)]
+list1[len(list1)]
 IndexError: list index out of range
 -->
 
@@ -204,9 +206,9 @@ IndexError: list index out of range
 
 ```
 >>> list2 = [2,6]
->>> list+list2
+>>> list1+list2
 [5, 3, 'p', 9, 'e', 2, 6]
->>> len(list+list2)
+>>> len(list1 + list2)
 7
 
 ```
@@ -216,10 +218,10 @@ IndexError: list index out of range
 ## Slicing of lists
 
 ```
->>> list = [5, 3, 'p', 9, 'e']
->>> list[1:3]
+>>> list1 = [5, 3, 'p', 9, 'e']
+>>> list1[1:3]
 [3, 'p']
->>> list[2:]
+>>> list1[2:]
 ['p', 9, 'e']
 
 ```
@@ -227,9 +229,9 @@ IndexError: list index out of range
 An index with a negative sign denotes counting from the end of the list to the beginning:
 
 ```
->>> list[2:-1]
+>>> list1[2:-1]
 ['p', 9]
->>> list[2:-2]
+>>> list1[2:-2]
 ['p']
 
 ```
@@ -241,19 +243,22 @@ An index with a negative sign denotes counting from the end of the list to the b
 Append, remove, insert, is a member of:
 
 ```
->>> list.append(37)
+>>> list1.append(37)
+>>> list1
 [5, 3, 'p', 9, 'e', 37]
->>> list.insert(2, 'z')
+>>> list1.insert(2, 'z')
+>>> list1
 [5, 3, 'z', 'p', 9, 'e', 37]
->>> list.remove('e')
+>>> list1.remove('e')
+>>> list1
 [5, 3, 'z', 'p', 9, 37]
->>> 'p' in list
+>>> 'p' in list1
 True
 
 ```
 
 <!--
-list.append() does not print the list in ipython.
+list1.append() does not print the list1 in ipython.
 So, the correct way of writing would be:
 list.append(37); list
 
@@ -261,7 +266,7 @@ p in list
 NameError: name 'p' is not defined
 -->
 
-A special notification for `range()`, which gives access to a list:
+A special notification for `range()`, which gives access to a list-like object:
 
 ```
 >>> range(5)[0]
@@ -280,22 +285,8 @@ A special notification for `range()`, which gives access to a list:
 ```
 >>> i=0
 >>> while i in range(5):
-   	  print(i)
-   	  i=i+1
-
-```
-
-is equivalent to
-
-```
->>> for i in range(5):
-          print(i)
-
-```
-
-In both cases, the output is
-
-```
+...     print(i)
+...     i = i + 1
 0
 1
 2
@@ -304,6 +295,18 @@ In both cases, the output is
 
 ```
 
+is equivalent to
+
+```
+>>> for i in range(5):
+...     print(i)
+0
+1
+2
+3
+4
+
+```
 ---
 
 ## Compact notation
@@ -312,16 +315,16 @@ How to make lists? Long version:
 
 ```
 >>> result=[]
->>> for val in collection:
+>>> for val in <collection>:                                                             # doctest: +SKIP
       if <condition>:
          result.append(<expression>)
 	 
 ```
 
-Short version:
+Short version: a so called *list comprehension*
 
 ```
->>> [<expression> for val in collection if <condition>]
+>>> [<expression> for val in collection if <condition>]                                  # doctest: +SKIP
 
 ```
 
@@ -340,24 +343,27 @@ For example:
 ## Strings
 
 ```
->>> string_ex='Obelix is a Celt'
+>>> string_ex = 'Obelix is a Celt'
+>>> string_ex
 'Obelix is a Celt'
 >>> string_ex2 = string_ex.replace('Celt', 'strong Celt')
+>>> string_ex2
 'Obelix is a strong Celt'
 
 ```
 
 <!--
->>> string_ex='Obelix is a Celt'
+>>> string_ex = 'Obelix is a Celt'
 >>> string_ex
 'Obelix is a Celt'
+
 -->
 
 E.g. a number can be converted into a string using `str`.
 
 ```
->>> a=5.6
->>> s=str(a)
+>>> a = 5.6
+>>> s = str(a)
 >>> s
 '5.6'
 
@@ -366,15 +372,16 @@ E.g. a number can be converted into a string using `str`.
 <!--
 from a string to an integer is possible (does not exist for a real number - has to be defined using 'map')
 
->>> a='11'
+>>> a = '11'
 >>> int(a)
 11
+
 -->
 
 Slicing is also possible with a string:
 
 ```
->>> s='menhir'
+>>> s = 'menhir'
 >>> s[:3]
 'men'
 
@@ -387,7 +394,7 @@ Slicing is also possible with a string:
 A `dict` is built up through a collection of key-value pairs within curly braces {}. The syntax is therefore
 
 ```
->>> dict={key1: value1, key2: value2,...}
+>>> dict={key1: value1, key2: value2,...}                                                # doctest: +SKIP
 
 ```
 
@@ -398,9 +405,9 @@ The breakfast of Obelix can furtheron be manipulated as
 >>> Bf_Obelix['egg']
 5
 >>> Bf_Obelix.keys()
-dict_keys(['chicken', 'wporc', 'mouse', 'egg'])
+dict_keys(['egg', 'wporc', 'chicken', 'mouse'])
 >>> Bf_Obelix.items()
-dict_items([('chicken', 2), ('wporc', 3), ('mouse', 1), ('egg', 5)])
+dict_items([('egg', 5), ('wporc', 3), ('chicken', 2), ('mouse', 1)])
 >>> 'wporc' in Bf_Obelix
 True
 
@@ -415,7 +422,7 @@ To delete an item from the dictionary, use
 ```
 >>> del Bf_Obelix['mouse']
 >>> Bf_Obelix.items()
-dict_items([('chicken', 2), ('wporc', 3), ('egg', 5)])
+dict_items([('egg', 5), ('wporc', 3), ('chicken', 2)])
 
 ```
 
@@ -424,17 +431,22 @@ To add an item to the dictionary, use `update`:
 ```
 >>> Bf_Obelix.update({'roman': 2})
 >>> Bf_Obelix.items()
-dict_items([('chicken', 2), ('roman', 2), ('wporc', 3), ('egg', 5)])
+dict_items([('egg', 5), ('wporc', 3), ('chicken', 2), ('roman', 2)])
 
 ```
 
-Remark the random order of the items when the items of the Dict are requested. It is therefore important to be cautious about interpreting the `values` of the dict:
+Remark that the order of the items maybe random when the items of the Dict are requested.
+It is therefore important to be cautious about interpreting the `values` of the dict:
+
 
 ```
 >>> Bf_Obelix.values()
-dict_values([2, 5, 2, 3])
+dict_values([5, 3, 2, 2])
 
 ```
+
+*From Python 3.6, dictionaries have been reimplemented so that the insertion
+order is preserved*
 
 ---
 
@@ -444,8 +456,11 @@ A tuple is a one-dimensional, fixed-lenth immutable sequence of Python objects.
 
 ```
 >>> tup = 4, 5, 6
+>>> tup
 (4, 5, 6)
+
 >>> nested_tup = (4, 5, 6), (7, 8)
+>>> nested_tup
 ((4, 5, 6), (7, 8))
 
 ```
@@ -454,6 +469,7 @@ A tuple is a one-dimensional, fixed-lenth immutable sequence of Python objects.
 >>> tup = 4, 5, 6
 >>> tup
 (4, 5, 6)
+
 -->
 
 Any sequence can be converted to a tuple by invoking `tuple`:
@@ -476,15 +492,15 @@ Once created, it is not possible to modify which object is stored in each slot.
 
 ```
 >>> Obelix= tuple(['not thin', [1, 2], 'nectar'])
->>> Obelix[2]='magic drank'
+>>> Obelix[2] = 'magic drank'                                                            # doctest: +SKIP
 TypeError: 'tuple' object does not support item assignment
 
 ```
 
 From the other side, other manipulations are permitted:
 
-```
 >>> Obelix[1].append(3)
+>>> Obelix
 ('not thin', [1, 2, 3], 'nectar')
 >>> (4, None, 'stone') + Obelix
 (4, None, 'stone', 'not thin', [1, 2, 3], 'nectar')
@@ -493,7 +509,7 @@ From the other side, other manipulations are permitted:
 
 ```
 
-It is straight forward to use instance methods:
+It is straightforward to use instance methods:
 
 ```
 >>> a=(4, None, 'stone')*3
